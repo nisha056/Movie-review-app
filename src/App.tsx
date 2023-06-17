@@ -1,10 +1,11 @@
-import Content from "./components/content"
+import Fourk from "./components/pages/4k"
+import Home from "./components/pages/home"
 
 function App() {
   return (
     <>
-      <Content />
-
+      <Home />
+      <Fourk />
     </>
   )
 }
