@@ -37,7 +37,7 @@ const MainContent = () => {
     return (
 
         <div className="flex flex-col items-center  h-full">
-            <h1 className="text-white text-5xl font-bold mt-20  mb-10">Download YTS YIFY movies: HD smallest size</h1>
+            <h1 className="text-white text-5xl font-bold mt-20 mb-10">Download YTS YIFY movies: HD smallest size</h1>
             <p className="text-white">
                 Welcome to the official YTS.MX website. Here you can browse and download YIFY movies in excellent<br />
                 720p, 1080p, 2160p 4K and 3D quality, all at the smallest file size. YTS Movies Torrents.
@@ -91,14 +91,21 @@ const MainContent = () => {
                 </div>
 
             </div>
-            <section className="flex gap-5 mt-20">
-                {
-                    movies.map((movie, index) => {
-                        return (
-                            <MovieCard key={index} image={movie.img} details={movie} />
-                        )
-                    })
-                }
+            <section className="flex flex-col gap-5 ">
+                <div className="flex justify-center " style={{ color: "white" }}>_________________________________________________________________________________________________________________________________________</div>
+
+                <div className="flex items-center justify-center gap-10">
+                    {
+                        movies.map((movie, index) => {
+                            return (
+                                <MovieCard key={index} image={movie.img} details={movie} />
+                            )
+                        })
+                    }
+
+                </div>
+
+
 
             </section>
 
