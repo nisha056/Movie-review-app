@@ -1,5 +1,6 @@
 import { Star1, WifiSquare } from "iconsax-react";
 import MovieCard from "./MovieCard";
+import WarningCard from "./WarningCard";
 
 const MainContent = () => {
     const movies = [
@@ -36,7 +37,7 @@ const MainContent = () => {
     ];
     return (
 
-        <div className="flex flex-col items-center  h-full">
+        <div className="flex flex-col items-center  ">
             <h1 className="text-white text-5xl font-bold mt-20 mb-10">Download YTS YIFY movies: HD smallest size</h1>
             <p className="text-white">
                 Welcome to the official YTS.MX website. Here you can browse and download YIFY movies in excellent<br />
@@ -74,7 +75,7 @@ const MainContent = () => {
                 <div>
                 </div>
             </div>
-            <div className="flex items-center gap-10  ">
+            <div className="flex items-center gap-10 justify-between  ">
                 <div className="flex gap-3">
                     <Star1 size="24" color="green" variant="Bold" />
                     <p className="text-lg font-bold text-white">Popular downloads</p>
@@ -94,7 +95,7 @@ const MainContent = () => {
             <section className="flex flex-col gap-5 ">
                 <div className="flex justify-center " style={{ color: "white" }}>_________________________________________________________________________________________________________________________________________</div>
 
-                <div className="flex items-center justify-center gap-10">
+                <div className="flex items-center justify-center  gap-10 ">
                     {
                         movies.map((movie, index) => {
                             return (
@@ -104,6 +105,9 @@ const MainContent = () => {
                     }
 
                 </div>
+
+
+
 
 
 

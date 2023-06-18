@@ -4,8 +4,8 @@ const MovieCard = (props: any) => {
 
     return (
         <>
-            <div className="flex flex-col gap-1 items-center ">
-                <Card className="w-full  " style={{ padding: 5 }}>
+            <div className="flex flex-col gap-1 items-center h-full overflow-y-auto  ">
+                <Card className="w-full  " style={{ padding: 5, width: "200px" }}>
                     <img src={props.image}
                         className="w-full object-cover h-full "
 
