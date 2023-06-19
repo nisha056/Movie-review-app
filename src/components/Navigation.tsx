@@ -1,9 +1,15 @@
-import { Card, TextInput } from "@mantine/core";
+import { Card, Modal, TextInput } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { SearchNormal1 } from "iconsax-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoginContent from "./pages/login";
+import RegisterContent from "./register";
 
 const Navigation = () => {
     const navigate = useNavigate();
+    const [opened, { open, close }] = useDisclosure(false);
+    const [modalView, setModalView] = useState<string>('login');
 
     const handleNavigate1 = () => {
         navigate("/");
@@ -11,6 +17,12 @@ const Navigation = () => {
 
     const handleNavigate2 = () => {
         navigate("/4k");
+    };
+    const handleNavigate3 = () => {
+        navigate("/trending");
+    };
+    const handleNavigate4 = () => {
+        navigate("/browse");
     };
 
     return (
@@ -59,22 +71,32 @@ const Navigation = () => {
                 </div>
 
                 <div className="navigation-content flex gap-5 items-center text-sm text-gray-400">
-                    <button onClick={handleNavigate1}>Home</button>
+                    <button onClick={handleNavigate1}  >Home</button>
                     <button onClick={handleNavigate2} style={{ color: "#5AB242" }}>
                         4k
                     </button>
-                    <button>Trending</button>
-                    <button>Browse Movies</button>
+                    <button onClick={handleNavigate3} >Trending</button>
+                    {/* <button onClick={handleNavigate3} onMouseEnter={handleHover} style={{ color: isHovered ? 'white' : 'gray' }} onMouseLeave={handleNotHover} >Trending</button> */}
+                    <button onClick={handleNavigate4}>Browse Movies</button>
                 </div>
 
-                <div className="navigation-button flex gap-2 mr-3">
-                    <button className="text-white font-bold text-sm">Log in</button>
+                <div className="navigation-button flex gap-2 mr-20">
+                    <Modal size="lg" opened={opened} onClose={close} >
+                        <LoginContent startingTab={modalView} />
+                    </Modal>
+                    <button onClick={() => {
+                        setModalView('login');
+                        open()
+                    }} className="text-white font-bold text-sm">Log in</button>
                     <div className="text-white mt-2">|</div>
-                    <button className="text-white font-bold text-sm">Register</button>
+                    <button onClick={() => {
+                        setModalView('register');
+                        open()
+                    }} className="text-white font-bold text-sm">Register</button>
                 </div>
-            </div>
+            </div >
             <section></section>
-        </main>
+        </main >
     );
 };
 

@@ -1,6 +1,5 @@
 import { Star1, WifiSquare } from "iconsax-react";
 import MovieCard from "./MovieCard";
-import WarningCard from "./WarningCard";
 
 const MainContent = () => {
     const movies = [
@@ -78,7 +77,7 @@ const MainContent = () => {
             <div className="flex items-center gap-10 justify-between  ">
                 <div className="flex gap-3">
                     <Star1 size="24" color="green" variant="Bold" />
-                    <p className="text-lg font-bold text-white">Popular downloads</p>
+                    <p className="text-lg font-bold text-white ">Popular downloads</p>
 
                 </div>
                 <div className="flex gap-3 ">

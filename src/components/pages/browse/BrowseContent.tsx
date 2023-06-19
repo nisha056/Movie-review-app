@@ -1,5 +1,5 @@
 
-const FourkContent = () => {
+const BrowseContent = () => {
     return (
         <>
             <div className="flex flex-col gap-5 ml-20  ">
@@ -11,7 +11,7 @@ const FourkContent = () => {
                 </div>
                 <div className="flex gap-8 ml-20 items-center ">
                     <div>
-                        <label className="text-xl mb-2 " style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl mb-2 " style={{ color: "#5A5A56" }}>
                             Quality:
 
                             <select className="w-full mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -27,7 +27,7 @@ const FourkContent = () => {
 
                     </div>
                     <div>
-                        <label className="text-xl" style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl" style={{ color: "#5A5A56" }}>
                             Genre:
 
                             <select className="w-full  mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -40,7 +40,7 @@ const FourkContent = () => {
 
                     </div>
                     <div>
-                        <label className="text-xl  " style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl  " style={{ color: "#5A5A56" }}>
                             Rating:
 
                             <select className="w-full  mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -53,7 +53,7 @@ const FourkContent = () => {
 
                     </div>
                     <div>
-                        <label className="text-xl " style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl " style={{ color: "#5A5A56" }}>
                             Year:
 
                             <select className="w-full  mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -66,7 +66,7 @@ const FourkContent = () => {
 
                     </div>
                     <div>
-                        <label className="text-xl " style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl " style={{ color: "#5A5A56" }}>
                             Language
 
                             <select className="w-full  mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -79,7 +79,7 @@ const FourkContent = () => {
 
                     </div>
                     <div>
-                        <label className="text-xl " style={{ color: "#5A5A56" }}>
+                        <label className="text-2xl " style={{ color: "#5A5A56" }}>
                             Order By :
 
                             <select className="w-full  mt-5" style={{ backgroundColor: "#282828" }} placeholder="All">
@@ -98,4 +98,4 @@ const FourkContent = () => {
 
     )
 };
-export default FourkContent;
+export default BrowseContent;

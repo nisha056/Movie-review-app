@@ -69,14 +69,16 @@ const LatestSection = () => {
     return (
 
         <>
-            <div className="flex justify-between w-full items-center">
+            <div className="flex justify-between gap-10  items-center ml-20">
 
-
-                <h1 className="text-white font-bold ml-20  mt-10">Latest YIFY Movies Torrents
+                <h1 className="text-white font-bold ml-20  mt-10 mx-10">Latest YIFY Movies Torrents
                 </h1>
-                <p className="text-gray-500 mr-20 mt-10">
+                <p className="text-gray-500  mt-10 mr-10">
                     Browse All
                 </p>
+
+
+
             </div>
             <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
                 <div className="flex gap-10">

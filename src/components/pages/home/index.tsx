@@ -8,17 +8,12 @@ const Home = () => {
 
     return (
         <>
-
-            <div className="bg-cover bg-center w-screen h-screen " style={{ backgroundImage: `url(${Image1})` }}>
+            <div className="bg-cover bg-center  h-screen " style={{ backgroundImage: `url(${Image1})` }}>
                 <MainContent />
             </div>
-            <div className="bg-cover bg-center w-screen h-screen" style={{ backgroundImage: `url(${Image2})` }}>
+            <div className="bg-cover  bg-center  min:h-screen " style={{ backgroundImage: `url(${Image2})` }}>
                 <LatestSection />
-
-            </div>
-            <div className="bg-cover bg-center w-screen h-screen" style={{ backgroundImage: `url(${Image2})` }}>
                 <UpcomingSection />
-
             </div>
 
         </>

@@ -7,6 +7,9 @@ import Home from './components/pages/home';
 import { createEmotionCache, MantineProvider } from '@mantine/core';
 import Root from './routes/root';
 import Fourk from './components/pages/4k';
+import Trending from './components/pages/trending';
+import Browse from './components/pages/browse';
+import LoginContent from './components/pages/login';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const router = createBrowserRouter([
       {
         path: "/4k",
         element: <Fourk />,
+      },
+      {
+        path: "/trending",
+        element: <Trending />
+      },
+      {
+        path: "/browse",
+        element: <Browse />
+      },
+      {
+        path: "/login",
+        element: <LoginContent />
       },
 
     ]

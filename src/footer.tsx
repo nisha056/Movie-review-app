@@ -2,7 +2,7 @@ const Footer = () => {
     return (
         <>
             <div className="footer flex flex-col justify-center  items-center gap-2"
-                style={{ background: "#1D1D1D", height: "120px", fontSize: "14px" }}>
+                style={{ background: "#171717", height: "120px", fontSize: "14px" }}>
                 <div className="flex items-center justify-center gap-2">
                     <h2 className="text-white"> YTS©2011-2023</h2>
                     <h2 className="text-white">-</h2>

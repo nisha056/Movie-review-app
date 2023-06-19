@@ -1,7 +1,9 @@
-import UpcomingCard from "./UpcomingCard";
+import { Pagination } from "@mantine/core";
+import BrowseCard from "./BrowseCard";
 
-const UpcomingSection = () => {
-    const upcomings = [
+
+const BrowseCardSection = () => {
+    const ourmovies = [
         {
             id: 1,
             img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
@@ -31,29 +33,31 @@ const UpcomingSection = () => {
             date: 2023,
 
         },
+
+
+
     ];
 
     return (
+
         <>
-            <div className="flex justify-between gap-10 items-center ml-20">
-
-
-                <h1 className="text-white font-bold ml-20  mt-20">Upcoming YIFY Movies
-                </h1>
-                <p className="text-gray-500 mr-20 mt-20">
-                    Request a movie
-                </p>
+            <div className="flex gap-2 items-center justify-center ">
+                <p className="text-2xl mt-5 " style={{ color: "#6AB036" }}>YIFY Movies </p>
             </div>
-            <div className="flex items-center justify-center gap-10 mt-10  flex-wrap">
-                <div className="flex gap-10 mb-20">
-                    {upcomings.map((upcoming, index) => (
-                        <UpcomingCard key={index} image={upcoming.img} details={upcoming} />
+            <div className="mt-5 flex justify-center">
+                <Pagination total={10} color="lime" withEdges />
+            </div>
+            <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
+                <div className="flex gap-10">
+                    {ourmovies.map((ourmovie, index) => (
+                        <BrowseCard key={index} image={ourmovie.img} details={ourmovie} />
                     ))}
-
                 </div>
             </div>
+            <div className="mt-5 flex justify-center ">
+                <Pagination total={10} color="lime" withEdges className="mb-20" />
+            </div>
         </>
-
     )
-};
-export default UpcomingSection;
+}
+export default BrowseCardSection;
