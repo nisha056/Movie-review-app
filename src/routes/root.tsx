@@ -8,12 +8,16 @@ const Root = () => {
             <div className=" fixed top-0 mb-5 w-full ">
                 <Navigation />
             </div>
-            <div className="w-screen mt-10 ">
-                <Outlet />
+            <div className="h-screen overflow-y-auto">
+                <div className="w-screen mt-10 ">
+                    <Outlet />
+                </div>
+                <div className="  w-full  ">
+                    <Footer />
+                </div>
+
             </div>
-            <div className="  w-full  ">
-                <Footer />
-            </div>
+
         </div>
     )
 };

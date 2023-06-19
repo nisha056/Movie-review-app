@@ -35,7 +35,7 @@ const UpcomingSection = () => {
 
     return (
         <>
-            <div className="flex justify-between w-full items-center">
+            <div className="flex justify-between gap-10 w-full items-center">
 
 
                 <h1 className="text-white font-bold ml-20  mt-20">Upcoming YIFY Movies

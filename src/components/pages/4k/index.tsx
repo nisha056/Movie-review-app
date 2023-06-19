@@ -1,7 +1,11 @@
+import FourkContent from "./FourkContent";
+
 const Fourk = () => {
     return (
-        <div>
-            Hiiii
+        <div className="  bg-black w-full h-80">
+            <FourkContent />
+
+
         </div>
     );
 }
