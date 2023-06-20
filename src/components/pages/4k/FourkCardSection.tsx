@@ -1,5 +1,5 @@
 import { Pagination } from "@mantine/core";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import FourkCard from "./FourkCard";
 
@@ -16,9 +16,10 @@ const FourkCardSection = () => {
             .then((res) => {
                 const value = res.data.data?.movies;
                 setMovies(value);
-            }, [pageCount])
 
-    })
+            })
+
+    }, [pageCount])
 
     return (
 

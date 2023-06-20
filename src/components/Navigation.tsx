@@ -4,7 +4,7 @@ import { SearchNormal1 } from "iconsax-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginContent from "./pages/login";
-import RegisterContent from "./register";
+
 
 const Navigation = () => {
     const navigate = useNavigate();

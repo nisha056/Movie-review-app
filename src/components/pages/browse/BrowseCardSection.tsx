@@ -29,7 +29,7 @@ const BrowseCardSection = () => {
             <div className="mt-5 flex justify-center">
                 <Pagination total={20} color="lime" withEdges value={pageCount} onChange={handlePageChange} />
             </div>
-            <div className="grid grid-cols-5 mt-10">
+            <div className="grid grid-cols-5 mt-10 mx-10">
                 {movies?.map((movie: any, index: any) => (
                     <BrowseCard key={index} details={movie} />
                 ))}
