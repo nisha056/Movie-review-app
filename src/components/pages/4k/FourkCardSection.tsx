@@ -1,5 +1,5 @@
 import { Pagination } from "@mantine/core";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import FourkCard from "./FourkCard";
 
