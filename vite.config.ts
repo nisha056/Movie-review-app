@@ -5,4 +5,10 @@ export default {
     cssCodeSplit: true,
     minify: true,
   },
+  esbuild: {
+    // ...
+    tsconfig: {
+      allowSyntheticDefaultImports: true,
+    },
+  },
 };

@@ -1,8 +1,9 @@
+import React from 'react'
 import { Outlet } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../footer";
 
-const Root = () => {
+function Root() {
     return (
         <div className="flex flex-col  h-screen">
             <div className=" fixed top-0 z-10 mb-5 w-full ">
