@@ -74,7 +74,7 @@ const MainContent = () => {
             <section className="flex flex-col gap-2 ">
                 <div className="flex justify-center " style={{ color: "white" }}>_________________________________________________________________________________________________________________________________________</div>
 
-                <div className="flex items-center justify-center flex-wrap  gap-10 ">
+                <div className="flex items-center justify-center flex-wrap mt-10  gap-10 ">
                     {
                         moviess?.map((movie, index) => {
                             return (

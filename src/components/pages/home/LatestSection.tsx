@@ -36,7 +36,7 @@ const LatestSection = () => {
             </div>
             <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
                 <div className="flex gap-10">
-                    {newmoviess?.map((newmovie, index) => (
+                    {newmoviess?.map((newmovie: any, index: any) => (
                         <LatestCard key={index} details={newmovie} />
                     ))}
                 </div>

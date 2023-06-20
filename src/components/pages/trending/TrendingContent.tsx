@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import TrendingCard from "./TrendingCard";
 
 const TrendingContent = () => {
@@ -33,6 +35,15 @@ const TrendingContent = () => {
         },
 
     ];
+    const [movies, setMovies] = useState<any | null>(null);
+    useEffect(() => {
+        axios.get("https://yts.mx/api/v2/list_movies.json")
+            .then((res) => {
+                const value = res.data.data?.movies;
+                setMovies(value);
+            })
+
+    }, [])
 
     return (
         <>
@@ -40,12 +51,10 @@ const TrendingContent = () => {
                 <p className="mt-20 text-2xl font-bold" style={{ color: "#6AC045" }}>24h YIFY Trending Movies</p>
 
             </div>
-            <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
-                <div className="flex gap-10 mb-20 ">
-                    {trendingmovies.map((trendingmovie, index) => (
-                        <TrendingCard key={index} image={trendingmovie.img} details={trendingmovie} />
-                    ))}
-                </div>
+            <div className="grid grid-cols-5 mx-10 mt-10  ">
+                {movies?.map((movie: any, index: any) => (
+                    <TrendingCard key={index} details={movie} />
+                ))}
             </div>
         </>
     )

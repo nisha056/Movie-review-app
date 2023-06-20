@@ -1,41 +1,24 @@
 import { Pagination } from "@mantine/core";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import FourkCard from "./FourkCard";
 
 const FourkCardSection = () => {
-    const ourmovies = [
-        {
-            id: 1,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
+    const [pageCount, setPageCount] = useState(1);
+    const handlePageChange = (newPage: number) => {
+        setPageCount(newPage);
 
-        },
+    }
+    const [movies, setMovies] = useState<any | null>(null);
+    useEffect(() => {
+        // axios.get("https://yts.mx/api/v2/list_movies.json?limit=20&page=6")
+        axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&page=${pageCount}`)
+            .then((res) => {
+                const value = res.data.data?.movies;
+                setMovies(value);
+            }, [pageCount])
 
-        {
-            id: 2,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
-
-        },
-        {
-            id: 3,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
-
-        },
-        {
-            id: 4,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
-
-        },
-
-
-
-    ];
+    })
 
     return (
 
@@ -43,20 +26,18 @@ const FourkCardSection = () => {
             <div className="flex gap-2 items-center justify-center ">
                 <p className="text-2xl mt-5" style={{ color: "#07BBC2" }}>2160p 4K</p>
                 <p className="text-2xl mt-5" style={{ color: "#6AB036" }}>YIFY Movies (ordered by <i>latest</i>)</p>
-                <p className="text-2xl mt-5" style={{ color: "#6AB036" }}>- page 2</p>
+                <p className="text-2xl mt-5" style={{ color: "#6AB036" }}>- page {pageCount}</p>
             </div>
             <div className="mt-5 flex justify-center">
-                <Pagination total={10} color="lime" withEdges />
+                <Pagination total={20} color="lime" withEdges value={pageCount} onChange={handlePageChange} />
             </div>
-            <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
-                <div className="flex gap-10">
-                    {ourmovies.map((ourmovie, index) => (
-                        <FourkCard key={index} image={ourmovie.img} details={ourmovie} />
-                    ))}
-                </div>
+            <div className="grid grid-cols-5 mx-10 mt-10">
+                {movies?.map((movie: any, index: any) => (
+                    <FourkCard key={index} details={movie} />
+                ))}
             </div>
-            <div className="mt-5 flex justify-center">
-                <Pagination total={10} color="lime" withEdges />
+            <div className="mt-5 flex justify-center ">
+                <Pagination total={10} color="lime" withEdges className="mb-10" value={pageCount} onChange={handlePageChange} />
             </div>
         </>
     )

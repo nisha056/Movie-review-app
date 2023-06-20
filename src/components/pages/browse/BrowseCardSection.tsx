@@ -1,61 +1,41 @@
 import { Pagination } from "@mantine/core";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import BrowseCard from "./BrowseCard";
 
 
 const BrowseCardSection = () => {
-    const ourmovies = [
-        {
-            id: 1,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
+    const [movies, setMovies] = useState<any | null>(null);
+    const [pageCount, setPageCount] = useState(1);
+    const handlePageChange = (page: number) => {
+        setPageCount(page);
+    }
 
-        },
+    useEffect(() => {
+        axios.get(`https://yts.mx/api/v2/list_movies.json?limit=20&page=${pageCount}`)
+            .then((res) => {
+                const value = res.data.data?.movies;
+                setMovies(value);
+            })
 
-        {
-            id: 2,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
-
-        },
-        {
-            id: 3,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
-
-        },
-        {
-            id: 4,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
-
-        },
-
-
-
-    ];
-
+    }, [pageCount]);
     return (
 
         <>
             <div className="flex gap-2 items-center justify-center ">
                 <p className="text-2xl mt-5 " style={{ color: "#6AB036" }}>YIFY Movies </p>
+                <p className="text-2xl mt-5" style={{ color: "#6AB036" }}>- page {pageCount}</p>
             </div>
             <div className="mt-5 flex justify-center">
-                <Pagination total={10} color="lime" withEdges />
+                <Pagination total={20} color="lime" withEdges value={pageCount} onChange={handlePageChange} />
             </div>
-            <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
-                <div className="flex gap-10">
-                    {ourmovies.map((ourmovie, index) => (
-                        <BrowseCard key={index} image={ourmovie.img} details={ourmovie} />
-                    ))}
-                </div>
+            <div className="grid grid-cols-5 mt-10">
+                {movies?.map((movie: any, index: any) => (
+                    <BrowseCard key={index} details={movie} />
+                ))}
             </div>
             <div className="mt-5 flex justify-center ">
-                <Pagination total={10} color="lime" withEdges className="mb-20" />
+                <Pagination total={20} color="lime" withEdges className="mb-20" value={pageCount} onChange={handlePageChange} />
             </div>
         </>
     )
