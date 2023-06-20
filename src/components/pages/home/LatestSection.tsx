@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import LatestCard from "./LatestCard";
-
+import React from "react";
 
 const LatestSection = () => {
 

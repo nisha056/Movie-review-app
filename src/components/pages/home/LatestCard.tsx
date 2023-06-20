@@ -1,5 +1,5 @@
 import { Card } from "@mantine/core";
-
+import React from "react";
 const LatestCard = (props: any) => {
     return (
         <div className="flex flex-col  items-center h-full overflow-y-auto  ">

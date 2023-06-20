@@ -1,6 +1,6 @@
 import FourkCardSection from "./FourkCardSection";
 import FourkContent from "./FourkContent";
-
+import React from "react";
 const Fourk = () => {
     return (
         <>

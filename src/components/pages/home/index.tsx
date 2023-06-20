@@ -4,6 +4,7 @@ import Image2 from "../../../assets/background2.jpg";
 import LatestSection from "./LatestSection";
 import MainContent from "./mainContent";
 import UpcomingSection from "./UpcomingSection";
+import React from "react";
 const Home = () => {
 
     return (

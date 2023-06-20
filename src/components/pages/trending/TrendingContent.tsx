@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TrendingCard from "./TrendingCard";
+import React from "react";
 
 const TrendingContent = () => {
 

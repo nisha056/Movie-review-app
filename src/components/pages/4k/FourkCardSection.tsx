@@ -2,7 +2,7 @@ import { Pagination } from "@mantine/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import FourkCard from "./FourkCard";
-
+import React from "react";
 const FourkCardSection = () => {
     const [pageCount, setPageCount] = useState(1);
     const handlePageChange = (newPage: number) => {

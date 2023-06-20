@@ -1,3 +1,4 @@
+import React from "react"
 import Fourk from "./components/pages/4k"
 import Home from "./components/pages/home"
 

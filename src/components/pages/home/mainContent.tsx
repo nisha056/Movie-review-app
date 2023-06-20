@@ -2,6 +2,7 @@ import { Star1, WifiSquare } from "iconsax-react";
 import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from 'axios';
+import React from "react";
 
 const MainContent = () => {
     const [moviess, setMoviess] = useState<any[] | null>(null);

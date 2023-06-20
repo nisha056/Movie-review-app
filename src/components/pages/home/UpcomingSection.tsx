@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import UpcomingCard from "./UpcomingCard";
-
+import React from "react";
 const UpcomingSection = () => {
 
     const [upcomingss, setUpcomingss] = useState<any | null>(null);

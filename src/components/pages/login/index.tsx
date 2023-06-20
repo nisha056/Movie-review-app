@@ -1,6 +1,6 @@
 import { Tabs } from "@mantine/core";
 import { useState } from "react";
-
+import React from "react";
 const LoginContent = (props: any) => {
     const [activeTab, setActiveTab] = useState<string | null>(props.startingTab);
 

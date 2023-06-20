@@ -1,5 +1,5 @@
 import { Card } from "@mantine/core";
-
+import React from "react";
 const MovieCard = (props: any) => {
 
     console.log(props.movie);

@@ -1,6 +1,6 @@
 import BrowseCardSection from "./BrowseCardSection";
 import BrowseContent from "./BrowseContent";
-
+import React from "react";
 const Fourk = () => {
     return (
         <>

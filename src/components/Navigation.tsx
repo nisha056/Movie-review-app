@@ -1,6 +1,7 @@
 import { Card, Modal, TextInput } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { SearchNormal1 } from "iconsax-react";
+import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginContent from "./pages/login";
@@ -46,7 +47,7 @@ const Navigation = () => {
 
                 <div className="navigation-search">
                     <div>
-                        <Card radius="xl" size="sm" withBorder style={{ background: "#1D1D1D", borderColor: "gray", height: "40px", padding: "1px" }}>
+                        <Card radius="xl" withBorder style={{ background: "#1D1D1D", borderColor: "gray", height: "40px", padding: "1px" }}>
                             <div className="flex items-center mt-1 ">
                                 <TextInput
                                     placeholder="Quick Search"

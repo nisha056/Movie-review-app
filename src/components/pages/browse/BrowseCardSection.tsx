@@ -2,7 +2,7 @@ import { Pagination } from "@mantine/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BrowseCard from "./BrowseCard";
-
+import React from "react";
 
 const BrowseCardSection = () => {
     const [movies, setMovies] = useState<any | null>(null);

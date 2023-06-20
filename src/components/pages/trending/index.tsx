@@ -1,3 +1,4 @@
+import React from "react";
 import TrendingContent from "./TrendingContent";
 
 const Trending = () => {
