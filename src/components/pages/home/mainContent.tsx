@@ -1,44 +1,24 @@
 import { Star1, WifiSquare } from "iconsax-react";
+import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
+import axios from 'axios';
 
 const MainContent = () => {
-    const movies = [
-        {
-            id: 1,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
-
-        },
-
-        {
-            id: 2,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
-
-        },
-        {
-            id: 3,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
-
-        },
-        {
-            id: 4,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
-
-        },
-
-    ];
+    const [moviess, setMoviess] = useState<any[] | null>(null);
+    useEffect(() => {
+        async function getMovie() {
+            axios.get("https://yts.mx/api/v2/list_movies.json").then((res) => {
+                const temp = res.data.data?.movies?.slice(0, 4);
+                setMoviess(temp);
+            })
+        }
+        getMovie()
+    }, [])
     return (
 
         <div className="flex flex-col items-center  ">
-            <h1 className="text-white text-5xl font-bold mt-20 mb-10">Download YTS YIFY movies: HD smallest size</h1>
-            <p className="text-white">
+            <h1 className="text-white text-4xl font-bold mt-10 mb-5">Download YTS YIFY movies: HD smallest size</h1>
+            <p className="text-white text-[15px]">
                 Welcome to the official YTS.MX website. Here you can browse and download YIFY movies in excellent<br />
                 720p, 1080p, 2160p 4K and 3D quality, all at the smallest file size. YTS Movies Torrents.
             </p>
@@ -86,19 +66,19 @@ const MainContent = () => {
                         color="#EF9D39"
                         variant="Bold"
                     />
-                    <p className="text-lg font-bold text-blue-600">more featured..</p>
+                    <p className=" font-bold text-blue-600">more featured..</p>
 
                 </div>
 
             </div>
-            <section className="flex flex-col gap-5 ">
+            <section className="flex flex-col gap-2 ">
                 <div className="flex justify-center " style={{ color: "white" }}>_________________________________________________________________________________________________________________________________________</div>
 
-                <div className="flex items-center justify-center  gap-10 ">
+                <div className="flex items-center justify-center flex-wrap  gap-10 ">
                     {
-                        movies.map((movie, index) => {
+                        moviess?.map((movie, index) => {
                             return (
-                                <MovieCard key={index} image={movie.img} details={movie} />
+                                <MovieCard key={index} details={movie} />
                             )
                         })
                     }

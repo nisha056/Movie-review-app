@@ -1,71 +1,25 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import LatestCard from "./LatestCard";
 
 
 const LatestSection = () => {
-    const newmovies = [
-        {
-            id: 1,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
 
-        },
-
-        {
-            id: 2,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
-
-        },
-        {
-            id: 3,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
-
-        },
-        {
-            id: 4,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
-
-        },
-        {
-            id: 5,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
-
-        },
-
-        {
-            id: 6,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
-
-        },
-        {
-            id: 7,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
-
-        },
-        {
-            id: 8,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
-
-        },
+    const [newmoviess, setNewMoviess] = useState<any | null>(null)
+    const [nextmovies, setNextMovies] = useState<any | null>(null);
+    useEffect(() => {
+        axios.get("https://yts.mx/api/v2/list_movies.json ")
+            .then((res) => {
+                const value1 = res.data.data?.movies.slice(5, 9);
+                const value2 = res.data.data?.movies.slice(10, 14);
+                setNewMoviess(value1);
+                setNextMovies(value2);
 
 
-    ];
-    const firstFourMovies = newmovies.slice(0, 4);
-    const remainingMovies = newmovies.slice(4);
+            })
+
+    }, [])
+
     return (
 
         <>
@@ -82,13 +36,13 @@ const LatestSection = () => {
             </div>
             <div className="flex items-center justify-center gap-10 mt-10 flex-wrap">
                 <div className="flex gap-10">
-                    {firstFourMovies.map((newmovie, index) => (
-                        <LatestCard key={index} image={newmovie.img} details={newmovie} />
+                    {newmoviess?.map((newmovie, index) => (
+                        <LatestCard key={index} details={newmovie} />
                     ))}
                 </div>
                 <div className="flex gap-10">
-                    {remainingMovies.map((newmovie, index) => (
-                        <LatestCard key={index} image={newmovie.img} details={newmovie} />
+                    {nextmovies?.map((nextmovie: any, index: any) => (
+                        <LatestCard key={index} details={nextmovie} />
                     ))}
                 </div>
             </div>

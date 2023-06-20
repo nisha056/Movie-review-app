@@ -1,37 +1,25 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import UpcomingCard from "./UpcomingCard";
 
 const UpcomingSection = () => {
-    const upcomings = [
-        {
-            id: 1,
-            img: "https://img.yts.mx/assets/images/movies/custody_2023/medium-cover.jpg",
-            description: "Custody",
-            date: 2023,
 
-        },
+    const [upcomingss, setUpcomingss] = useState<any | null>(null);
+    useEffect(() => {
+        axios.get("https://yts.mx/api/v2/list_movies.json")
+            .then((res) => {
+                console.log(res.data.data.movies);
+                const value = res.data.data?.movies.slice(12, 16);
+                setUpcomingss(value);
 
-        {
-            id: 2,
-            img: "https://img.yts.mx/assets/images/movies/on_sacred_ground_2023/medium-cover.jpg",
-            description: "On Sacred Ground",
-            date: 2023,
+            })
+            .catch((err) => {
+                console.log(err);
 
-        },
-        {
-            id: 3,
-            img: "https://img.yts.mx/assets/images/movies/about_my_father_2023/medium-cover.jpg",
-            description: "About My Father",
-            date: 2023,
+            })
 
-        },
-        {
-            id: 4,
-            img: "https://img.yts.mx/assets/images/movies/extraction_2_2023/medium-cover.jpg",
-            description: "Extraction 2",
-            date: 2023,
 
-        },
-    ];
+    }, []);
 
     return (
         <>
@@ -46,8 +34,8 @@ const UpcomingSection = () => {
             </div>
             <div className="flex items-center justify-center gap-10 mt-10  flex-wrap">
                 <div className="flex gap-10 mb-20">
-                    {upcomings.map((upcoming, index) => (
-                        <UpcomingCard key={index} image={upcoming.img} details={upcoming} />
+                    {upcomingss?.map((upcoming: any, index: any) => (
+                        <UpcomingCard key={index} details={upcoming} />
                     ))}
 
                 </div>
